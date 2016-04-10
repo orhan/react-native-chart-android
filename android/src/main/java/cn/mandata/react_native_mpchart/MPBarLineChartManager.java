@@ -1,12 +1,10 @@
 package cn.mandata.react_native_mpchart;
 
-import android.graphics.Color;
-
 import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.ReadableMap;
-import com.facebook.react.uimanager.annotations.ReactProp;
 import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
+import com.facebook.react.uimanager.annotations.ReactProp;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.BarLineChartBase;
 import com.github.mikephil.charting.components.AxisBase;
@@ -17,13 +15,9 @@ import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.components.YAxis.AxisDependency;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
-import com.github.mikephil.charting.data.BarEntry;
-import com.github.mikephil.charting.data.DataSet;
-import com.github.mikephil.charting.formatter.XAxisValueFormatter;
-import com.github.mikephil.charting.utils.ColorTemplate;
-import com.github.mikephil.charting.utils.ViewPortHandler;
 
-import java.util.ArrayList;
+import android.graphics.Color;
+
 import java.util.Random;
 
 /**
@@ -198,6 +192,8 @@ public class MPBarLineChartManager extends SimpleViewManager<BarLineChartBase> {
         if(v.hasKey("gridLineWidth")) axis.setGridLineWidth((float)v.getDouble("gridLineWidth"));
         if(v.hasKey("axisLineColor")) axis.setAxisLineColor(Color.parseColor(v.getString("axisLineColor")));
         if(v.hasKey("axisLineWidth")) axis.setAxisLineWidth((float)(v.getDouble("axisLineWidth")));
+        if(v.hasKey("axisMinValue")) axis.setAxisMinValue((float)(v.getDouble("axisMinValue")));
+        if(v.hasKey("axisMaxValue")) axis.setAxisMaxValue((float)(v.getDouble("axisMaxValue")));
         if(v.hasKey("gridDashedLine")) {
             ReadableMap gdl=v.getMap("gridDashedLine");
             axis.enableGridDashedLine((float)gdl.getDouble("lineLength"),

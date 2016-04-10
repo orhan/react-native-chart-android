@@ -1,26 +1,16 @@
 package cn.mandata.react_native_mpchart;
 
-import android.graphics.Color;
-
 import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.ReadableMap;
-import com.facebook.react.uimanager.annotations.ReactProp;
-import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
-import com.github.mikephil.charting.charts.BarChart;
-import com.github.mikephil.charting.charts.BarLineChartBase;
+import com.facebook.react.uimanager.annotations.ReactProp;
 import com.github.mikephil.charting.charts.LineChart;
-import com.github.mikephil.charting.components.AxisBase;
-import com.github.mikephil.charting.components.LimitLine;
-import com.github.mikephil.charting.components.YAxis;
-import com.github.mikephil.charting.data.BarData;
-import com.github.mikephil.charting.data.BarDataSet;
-import com.github.mikephil.charting.data.BarEntry;
-import com.github.mikephil.charting.data.DataSet;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
-import com.github.mikephil.charting.utils.ColorTemplate;
+
+import android.graphics.Color;
+import android.graphics.Typeface;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -35,6 +25,8 @@ public class MPLineChartManager extends MPBarLineChartManager {
     private LineChart chart;
     private LineData data;
     private LineDataSet dataSet;
+    private ThemedReactContext mReactContext;
+
     @Override
     public String getName() {
         return this.CLASS_NAME;
@@ -43,6 +35,7 @@ public class MPLineChartManager extends MPBarLineChartManager {
     @Override
     protected LineChart createViewInstance(ThemedReactContext reactContext) {
         LineChart chart=new LineChart(reactContext);
+        mReactContext = reactContext;
 
         return  chart;
     }
@@ -74,8 +67,13 @@ public class MPLineChartManager extends MPBarLineChartManager {
             ReadableMap config= map.getMap("config");
             LineDataSet dataSet=new LineDataSet(entries,label);
             if(config.hasKey("drawCircles")) dataSet.setDrawCircles(config.getBoolean("drawCircles"));
-            if(config.hasKey("circleSize")) dataSet.setCircleSize((float) config.getDouble("circleSize"));
+            if(config.hasKey("drawValues")) dataSet.setDrawValues(config.getBoolean("drawValues"));
+            if(config.hasKey("drawCubic")) dataSet.setDrawCubic(config.getBoolean("drawCubic"));
+            if(config.hasKey("circleRadius")) dataSet.setCircleRadius((float) config.getDouble("circleRadius"));
+            if(config.hasKey("circleColor")) dataSet.setCircleColor(Color.parseColor(config.getString("color")));
             if(config.hasKey("lineWidth")) dataSet.setLineWidth((float) config.getDouble("lineWidth"));
+            if(config.hasKey("valueFontName"))
+                dataSet.setValueTypeface(Typeface.createFromAsset(mReactContext.getAssets(), "fonts/" + config.getString("valueFontName") + ".ttf"));
             if(config.hasKey("colors")){
                 ReadableArray colorsArray = config.getArray("colors");
                 ArrayList<Integer> colors = new ArrayList<>();
