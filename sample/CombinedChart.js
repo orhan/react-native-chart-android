@@ -1,16 +1,16 @@
 /* @flow */
 'use strict';
 
-var React = require('react-native');
+var React = require('react');
 var TitleBar=require('./TitleBar');
 var {
 	CombinedChart
 }=require('../index.android');
-var {
+import {
   StyleSheet,
   View,
   Text
-} = React;
+} from 'react-native';
 
 var Component = React.createClass({
 	getData:function (argument) {
@@ -25,7 +25,7 @@ var Component = React.createClass({
 					}
 				}
 			]
-		};	
+		};
 		return data;
 	},
 	getRandomData:function (argument) {
@@ -50,21 +50,21 @@ var Component = React.createClass({
 		return (
 			<View style={styles.container}>
 				<TitleBar/>
-				<View style={styles.chartContainer}>					
-					<CombinedChart 
-						style={{flex:1}} 
+				<View style={styles.chartContainer}>
+					<CombinedChart
+						style={{flex:1}}
 						data={this.getRandomData()}
 						visibleXRange={[0,30]}
-						maxVisibleValueCount={50} 
+						maxVisibleValueCount={50}
 				        xAxis={{drawGridLines:false,gridLineWidth:1,position:"BOTTOM"}}
-				        yAxisRight={{enable:false}} 
+				        yAxisRight={{enable:false}}
 				        yAxis={{startAtZero:false,drawGridLines:false,position:"INSIDE_CHART"}}
 				        drawGridBackground={false}
-				        backgroundColor={"WHITE"} 
+				        backgroundColor={"WHITE"}
 				        description={"测试"}
-				        legend={{enable:true,position:'ABOVE_CHART_LEFT',direction:"LEFT_TO_RIGHT"}}>					        
-							<CombinedChart.Chart chartType={"line"} data={this.getRandomData()} />		
-							<CombinedChart.Chart chartType={"bar"} data={this.getRandomData()} />				
+				        legend={{enable:true,position:'ABOVE_CHART_LEFT',direction:"LEFT_TO_RIGHT"}}>
+							<CombinedChart.Chart chartType={"line"} data={this.getRandomData()} />
+							<CombinedChart.Chart chartType={"bar"} data={this.getRandomData()} />
 				    </CombinedChart>
 				</View>
 			</View>

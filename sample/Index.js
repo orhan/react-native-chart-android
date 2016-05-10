@@ -1,20 +1,20 @@
 /* @flow */
 'use strict';
 
-var React = require('react-native');
+var React = require('react');
 var BarChart=require('./BarChart');
 var LineChart=require('./LineChart');
 var CandleChart=require('./CandleChart');
 var CombinedChart=require('./CombinedChart');
 var Button=require('./Button');
-var {
+import {
   StyleSheet,
   View,
   TouchableOpacity,
   Text,
   Navigator,
   NativeAppEventEmitter
-} = React;
+} from 'react-native';
 
 
 

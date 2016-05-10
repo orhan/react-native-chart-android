@@ -1,16 +1,16 @@
 /* @flow */
 'use strict';
 
-var React = require('react-native');
+var React = require('react');
 var Button=require('./Button');
-var {
+import {
   StyleSheet,
   View,
   NativeAppEventEmitter
-} = React;
+} from 'react-native';
 
 var Component = React.createClass({
-	onBack:function (argument) {		
+	onBack:function (argument) {
 		 NativeAppEventEmitter.emit('back');
 	},
 	render: function() {

@@ -1,14 +1,14 @@
 /* @flow */
 'use strict';
 
-var React = require('react-native');
+var React = require('react');
 
-var {
+import {
   StyleSheet,
   View,
   TouchableOpacity,
   Text
-} = React;
+} from 'react-native';
 
 var Button = React.createClass({
 	onPress:function (argument) {
@@ -19,7 +19,7 @@ var Button = React.createClass({
 			<TouchableOpacity activeOpacity ={0.5} underlayColor="#B5B5B5" onPress={this.props.onPress}>
 		        <View  style={[styles.button,this.props.style]}>
 		        	<Text>{this.props.text}</Text>
-		        </View>       
+		        </View>
       		</TouchableOpacity >
 		);
 	}
