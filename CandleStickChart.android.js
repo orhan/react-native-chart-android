@@ -1,4 +1,8 @@
-import React,{ requireNativeComponent, Component, PropTypes, View } from 'react-native';
+import React, {Component, PropTypes} from "react";
+import {
+  requireNativeComponent,
+  View,
+} from "react-native";
 
 class CandleStickChart extends Component {
     constructor(props) {
@@ -46,7 +50,7 @@ CandleStickChart.propTypes = {
     scaleY: PropTypes.number,
     translateX: PropTypes.number,
     translateY: PropTypes.number,
-    rotation: PropTypes.number,	
+    rotation: PropTypes.number,
     renderToHardwareTextureAndroid: React.PropTypes.bool,
     onLayout: React.PropTypes.bool,
     accessibilityLiveRegion: React.PropTypes.string,
