@@ -51,9 +51,9 @@ public class MPPieChartManager extends MPPieRadarChartManager {
         chart.invalidate();
     }
 
-    @ReactProp(name="backgroundColor", defaultInt = Color.WHITE)
-    public void setBackgroundColor(PieChart chart, int backgroundColor){
-        chart.setBackgroundColor(backgroundColor);
+    @ReactProp(name="backgroundColor")
+    public void setBackgroundColor(PieChart chart, String backgroundColor){
+        chart.setBackgroundColor(Color.parseColor(backgroundColor));
         chart.invalidate();
     }
 
