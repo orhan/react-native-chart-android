@@ -39,7 +39,9 @@ public class MPPieChartManager extends MPPieRadarChartManager {
         return chart;
     }
     
-            chart.setHoleRadius(holeRadius);
+    @ReactProp(name = "holeRadius", defaultFloat = 50f)
+    public void setHoleRadius(PieChart chart, float holeRadius){
+        chart.setHoleRadius(holeRadius);
         chart.invalidate();
     }
 
