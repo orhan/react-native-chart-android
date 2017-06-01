@@ -1,14 +1,21 @@
 package cn.mandata.react_native_mpchart;
 
+import android.graphics.Color;
+
 import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.ReadableMap;
+import com.facebook.react.uimanager.annotations.ReactProp;
 import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
-import com.facebook.react.uimanager.annotations.ReactProp;
+import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.charts.PieRadarChartBase;
 import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
 
-import android.graphics.Color;
+import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Created by Administrator on 2015/12/24.
@@ -23,7 +30,8 @@ public class MPPieRadarChartManager extends SimpleViewManager<PieRadarChartBase>
 
     @Override
     protected PieRadarChartBase createViewInstance(ThemedReactContext reactContext) {
-        return null;
+        PieChart chart = new PieChart(reactContext);
+        return chart;
     }
 
 
