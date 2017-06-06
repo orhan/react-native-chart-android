@@ -131,10 +131,11 @@ public class MPPieChartManager extends MPPieRadarChartManager {
                 dataSet.setValueTextColors(colors);
             }else
             if(config.hasKey("valueTextColor")) dataSet.setValueTextColor(Color.parseColor(config.getString("valueTextColor")));
-            dataSet.setSliceSpace(3f);
+            dataSet.setSliceSpace(0f);
             pieData.addDataSet(dataSet);
 
         }
+        chart.setBackgroundColor(Color.WHITE);
         chart.setUsePercentValues(true);
         chart.setData(pieData);
         chart.invalidate();
